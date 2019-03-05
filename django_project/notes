@@ -1,0 +1,16 @@
+part3: when install new app, dont forget to add new path to settings.py
+part3: python template syntax
+part3: load static file: css, javascript
+part3: remember to change href tag to url(navigation bar)
+part4: createsuperuser; makemigrations; migrate
+part5: django has its own ORM: object relational mapper
+5:django model class write sql code for us; make migrations: update the database without writing nasty sql code which may mess up the database.
+views.py use posts in database not dummy data; add posts section in admin.py
+6:when create a new app:1. add new app in settings; 2. add url routing; 3.create template; 4. insert functionality in views.p
+6:crispy-form; vertical bar:filter
+7:Add login and logout in urls.py; changes in login and logout template; add restrictions of users to some pages
+8:user profile picture and django signal; any time we make changes to models, we need to make changes to databases(run migrate command); dont forget register models in admin.py; set media directory and set media url;deploying static files(django documentation); set django signals(follow the documentation):
+9:merge profile form and user form to one which user can see; dont forget to add enctype; resize image using pillow
+10:class based view and function view; create post and update post using mixin
+11: pagination and posts filter by users
+12: password reset
