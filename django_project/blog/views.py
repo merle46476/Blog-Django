@@ -1,8 +1,11 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
+# from django.contrib.auth.decorators import login_required
+# from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import Post
+from .models import Post, Comment
+from .forms import CommentForm
 
 
 def home(request):
@@ -66,6 +69,15 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 			return True
 		return False
 
+
+class add_comment_to_post(LoginRequiredMixin, CreateView):
+	model = Comment
+	fields = ['text']
+
+	def form_valid(self, form):
+		form.instance.author = self.request.user
+		form.instance.post = get_object_or_404(Post, pk=self.kwargs.get('pk'))
+		return super().form_valid(form)
 
 
 def about(request):
